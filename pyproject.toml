@@ -1,0 +1,45 @@
+[project]
+name = "project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "bertopic>=0.17.4",
+    "fsspec>=2026.9.0",
+    "hdbscan>=0.8.44",
+    "huggingface-hub>=2.4.0",
+    "ipykernel>=7.4.0",
+    "ipywidgets>=8.1.9",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.5",
+    "pandas>=3.1.1",
+    "pyarrow>=26.0.1",
+    "scikit-learn>=1.9.1",
+    "sentence-transformers>=6.3.0",
+    "torch>=2.14.1",
+    "triton-windows>=3.9.0.post30",
+    "umap-learn>=0.6.0",
+    "underthesea>=9.5.0",
+]
+
+[dependency-groups]
+dev = [
+    "nbdev>=3.3.30",
+    "pre-commit>=4.7.0",
+    "ruff>=0.17.5",
+]
+
+[tool.nbdev]
+jupyter_hooks = false
+clean_ids = true
+nbs_path = "/scripts"
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
